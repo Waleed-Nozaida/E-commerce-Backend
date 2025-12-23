@@ -1,0 +1,16 @@
+{
+  "name": "ecommerce-backend-api",
+  "version": "1.0.0",
+  "description": "Creating a Backend API for an E-commerce store management",
+  "license": "ISC",
+  "author": "Muhammad Waleed Barki",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "pg": "^8.16.3"
+  }
+}
