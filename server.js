@@ -22,7 +22,10 @@ const DB_PASSWORD  = process.env.DB_PASSWORD || 'mysecretpassword';
         port: 5432,
         user: DB_USER,
         password: DB_PASSWORD,
-        database: 'postgres'
+        database: 'postgres',
+        ssl: {
+            rejectUnauthorized: false
+        }
     });
 
     await client.connect();
@@ -83,7 +86,10 @@ const getDbClient = () => {
         port: 5432,
         user: DB_USER,
         password: DB_PASSWORD,
-        database: DB_NAME
+        database: DB_NAME,
+        ssl: {
+            rejectUnauthorized: false
+        }
     });
 
     return dbClient;
@@ -108,7 +114,7 @@ app.get("/api/products", async (req, res) => {
     else
     {
         console.log(`Products Table is Empty. No Products exist in Database ${DB_NAME}`);
-        return res.status(204).send("Products Table is Empty.");
+        return res.status(200).json([]);
     }
 });
 
@@ -274,7 +280,7 @@ app.get("/api/orders", async (req, res) => {
     else
     {
         console.log(`Orders Table is Empty. No Orders exist in Database ${DB_NAME}`);
-        return res.status(204).send("Orders Table is Empty.");
+        return res.status(200).json([]);
     }
 });
 
