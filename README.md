@@ -120,7 +120,7 @@ This project was deployed manually to **AWS** to ensure full control over the in
 3.  **Configuration:**
     *   Created a production `.env` file on the server with RDS credentials:
         ```ini
-        DB_HOST=my-rds-endpoint.ap-south-1c.rds.amazonaws.com
+        DB_HOST=ecommerce-db.ctk8a64yivk6.ap-south-1.rds.amazonaws.com
         DB_USER=postgres
         DB_PASSWORD=xxxxxxx
         DB_NAME=postgres
@@ -165,4 +165,5 @@ The application respects cloud environment variables via:
 ```javascript
 const PORT = process.env.PORT || 5600;
 ```
+
 This allows AWS or other cloud providers to inject their preferred port, falling back to 5600 for local development.
