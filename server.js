@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const {Client} = require("pg"); 
@@ -8,10 +9,10 @@ app.use(express.json());
 ******************Database Initialization***********************
 */
 
-const DB_NAME  = 'e-commerce';
-const DB_USER  = 'postgres';
-const DB_HOST  = 'localhost';
-const DB_PASSWORD  = 'mysecretpassword';
+const DB_NAME  = process.env.DB_NAME || 'e-commerce';
+const DB_USER  = process.env.DB_USER || 'postgres';
+const DB_HOST  = process.env.DB_HOST || 'localhost';
+const DB_PASSWORD  = process.env.DB_PASSWORD || 'mysecretpassword';
 
 
 (async () => {
