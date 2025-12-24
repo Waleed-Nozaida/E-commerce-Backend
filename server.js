@@ -23,9 +23,9 @@ const DB_PASSWORD  = process.env.DB_PASSWORD || 'mysecretpassword';
         user: DB_USER,
         password: DB_PASSWORD,
         database: 'postgres',
-        ssl: {
-            rejectUnauthorized: false
-        }
+        // ssl: {
+        //     rejectUnauthorized: false
+        // }
     });
 
     await client.connect();
@@ -87,9 +87,9 @@ const getDbClient = () => {
         user: DB_USER,
         password: DB_PASSWORD,
         database: DB_NAME,
-        ssl: {
-            rejectUnauthorized: false
-        }
+        // ssl: {
+        //     rejectUnauthorized: false
+        // }
     });
 
     return dbClient;
@@ -131,7 +131,7 @@ app.get("/api/products/:id", async (req, res) => {
 
     if (get_request.rows[0])
     {
-        return res.status(200).json(get_request.rows);
+        return res.status(200).json(get_request.rows[0]);
     }
     else
     {
